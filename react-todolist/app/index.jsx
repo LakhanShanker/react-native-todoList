@@ -1,4 +1,4 @@
-import { Alert, ScrollView, View } from 'react-native';
+import { Alert, ScrollView, Text, View } from 'react-native';
 import { s } from './styles'
 import Header from '../components/Header'
 import CardTodo from '../components/CardTodo'
@@ -106,6 +106,7 @@ export default function HomeScreen() {
     <View style={s.header}>
 <Header />
 </View>
+<Text/>
 <View style={s.body}>
   <ScrollView ref={scrollRef}>
 {renderTodoList()}
@@ -117,9 +118,9 @@ export default function HomeScreen() {
  </View>
   </View>
   <Dialog.Container visible={showDialog} onBackdropPress={()=>setShowDialog(false)}>
-<Dialog.Title>Add new Todo</Dialog.Title>
+<Dialog.Title style={{color:'#454545'}}>Add new Todo</Dialog.Title>
 <Dialog.Description>Choose a name for your todo</Dialog.Description>
-<Dialog.Input placeholder='Ex: Go to gym...' onChangeText={setInputValue}/>
+<Dialog.Input placeholder='Ex: Go to gym...' onChangeText={setInputValue} style={{color:'#454545'}}/>
 <Dialog.Button label='Cancel' color='grey' onPress={()=>{setShowDialog(false)}}/>
 <Dialog.Button disabled={inputValue.length === 0} label='Save' onPress={addTodo}/>
   </Dialog.Container>
